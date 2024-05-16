@@ -11,8 +11,15 @@ public class Main {
         MyClass obj1 = new MyClass();
         Thread thread1 = new Thread(obj1);
         Thread thread2 = new Thread(obj1);
+
+        //Step 6. As Runnable is a function interface can pass a lambda function
+        Thread thread3 = new Thread(() -> {
+            System.out.println("Code executed by thread: " + Thread.currentThread().getName() + " Thread created using lambda function.");
+        });
+
         thread1.start();
         thread2.start();
+        thread3.start();
         System.out.println("Finish the main method " + Thread.currentThread().getName());
     }
 }
