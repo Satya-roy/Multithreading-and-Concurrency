@@ -1,6 +1,6 @@
-public class Producer implements Runnable{
+public class ProduceTask implements Runnable{
     private final SharedResource sharedResource;
-    public Producer(SharedResource sharedResource) {
+    public ProduceTask(SharedResource sharedResource) {
         this.sharedResource = sharedResource;
     }
 

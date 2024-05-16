@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         SharedResource sharedResource = new SharedResource();
 
-        Producer producer = new Producer(sharedResource);
-        Consumer consumer = new Consumer(sharedResource);
+        ProduceTask producer = new ProduceTask(sharedResource);
+        ConsumeTask consumer = new ConsumeTask(sharedResource);
 
         Thread thread1 = new Thread(producer);
         Thread thread2 = new Thread(consumer);

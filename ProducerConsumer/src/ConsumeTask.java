@@ -1,7 +1,7 @@
-public class Consumer implements Runnable{
+public class ConsumeTask implements Runnable{
     private final SharedResource sharedResource;
 
-    public Consumer(SharedResource sharedResource) {
+    public ConsumeTask(SharedResource sharedResource) {
         this.sharedResource = sharedResource;
     }
 
