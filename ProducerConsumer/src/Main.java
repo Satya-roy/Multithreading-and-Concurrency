@@ -1,16 +1,19 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        SharedResource sharedResource = new SharedResource();
+        List<Integer> list = List.of( 3, 5, 7, 9);
+        int target = 11;
 
-        ProduceTask producer = new ProduceTask(sharedResource);
-        ConsumeTask consumer = new ConsumeTask(sharedResource);
-
-        Thread thread1 = new Thread(producer);
-        Thread thread2 = new Thread(consumer);
-
-        thread2.start();
-        thread1.start();
+        int lowerBoundIndex = Collections.binarySearch(list, target);
+        if (lowerBoundIndex >= 0) {
+            // Element found
+            System.out.println("Lower bound index of " + target + " is " + lowerBoundIndex);
+        } else {
+            // Element not found, calculate insertion point
+            int insertionPoint = -(lowerBoundIndex + 1);
+            System.out.println("Lower bound index of " + target + " is " + insertionPoint);
+        }
     }
 }

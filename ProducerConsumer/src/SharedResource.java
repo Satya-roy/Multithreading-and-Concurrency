@@ -5,7 +5,7 @@ public class SharedResource {
     public synchronized void addItem() {
         itemAvailable = true;
         System.out.println("Item added by: " + Thread.currentThread().getName() + " and invoking all threads which are in wait state");
-        notifyAll();
+        notifyAll(); // all the threads that are waiting on this object, invoke
     }
 
     //consumeItem
@@ -16,7 +16,7 @@ public class SharedResource {
         while(!itemAvailable) {
             try {
                 System.out.println("Thread " + Thread.currentThread().getName() + " is waiting now");
-                wait();
+                wait(); //releases the monitor lock
             } catch (Exception e) {
                 //handle exception
             }
