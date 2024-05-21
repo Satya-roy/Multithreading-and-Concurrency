@@ -4,7 +4,7 @@ import java.util.concurrent.locks.StampedLock;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        SharedResource1 sharedResource1 = new SharedResource1();
+        SharedResource2 sharedResource1 = new SharedResource2();
         StampedLock lock = new StampedLock();
         Thread th1 = new Thread(()-> {
             sharedResource1.producer(lock);
@@ -17,7 +17,7 @@ public class Main {
         Thread th3 = new Thread(() -> {
             sharedResource1.consumer(lock);
         });
-        
+
         th3.start();
         th1.start();
         th2.start();
