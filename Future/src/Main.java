@@ -9,6 +9,10 @@ import java.util.concurrent.TimeUnit;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(1, 1, 1, TimeUnit.HOURS, new ArrayBlockingQueue<>(10));
+
+        List<Integer> output = new ArrayList<>();
+        Future<List<Integer>> futureObj1 = poolExecutor.submit(new RunnableExample(output), output);
 
 
     }
