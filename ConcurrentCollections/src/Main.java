@@ -17,7 +17,10 @@ public class Main {
         Thread th1 = new Thread(new ReadTheListTask(resource));
 
         th1.start();
-
+        // This will throw concurrentModificationException
+        
+        // Main thread is modifying the list
+        // Thread-0: iterating through the list
         resource.getListResource().add(5);
         try {
             Thread.sleep(3000);
