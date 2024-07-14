@@ -18,7 +18,7 @@ public class Main {
 
         th1.start();
         // This will throw concurrentModificationException
-        
+
         // Main thread is modifying the list
         // Thread-0: iterating through the list
         resource.getListResource().add(5);
